@@ -1,5 +1,6 @@
-Nama    : Muhammad Ridho Anwar\n
-NPM     : 2506595745\n
-Kelas   : PBP B\n
+Nama    : Muhammad Ridho Anwar
 
-//tes latihan
+NPM     : 2506595745
+
+Kelas   : PBP B 
+ //tes latihan
