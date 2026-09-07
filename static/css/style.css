@@ -12,6 +12,7 @@
     --accent-dark: #30a5b0;
     --line: #e3d9c9;
     --text-muted: #6b6459;
+    --shadow: #555555;
     --radius: 4px;
 }
 
@@ -60,11 +61,21 @@ h1, .brand {
     color: var(--ink);
     text-decoration: none;
     font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;      
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.site-header nav a:hover {
+    border-color: #dcdfe3;
+    background-color: #dcdfe3;
 }
 
 /*Section hero dengan css grid*/
 .hero {
     padding: 4.5rem 0 5rem;
+    border-bottom: 1px solid var(--line);
 }
 
 .hero-grid {
@@ -122,13 +133,76 @@ h1, .brand {
     font-weight: 600;
 }
 
-/*.social-links {
+.logo-social {
+    transition: all 0.2s;
+}
+
+.logo-social:hover {
+    color: var(--shadow);
+}
+
+.logo-skill {
+    transition: all 0.2s;
+}
+
+.logo-skill:hover {
+    transform: scale(1.2);
+}
+
+.skill-list {
+    display: flex;
+    gap: 2 rem;
+    size: clamp(3rem, 7vw, 5rem);
+}
+
+.social-links {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
 }
 
-.social-link {
+.skills-grid h1 {
+    line-height: 0.95;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.skill-list {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.skills {
+    border-bottom: 1px solid var(--line);
+}
+
+.education-grid {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.education-grid h1 {
+    margin-bottom: 1.5rem;
+}
+
+.education-section h3 {
+    border: 1px solid var(--line);      
+    background-color: var(--line);
+    border-radius: var(--radius);       
+    padding: 2rem;                      
+    max-width: 600px;                   
+    margin: 0 auto;
+}
+
+.panah {
+    color: var(--text-muted);
+    margin: 0.5rem auto;
+}
+
+/*.social-link {
     display: inline-block;
     font-size: 0.85rem;
     font-weight: 600;
