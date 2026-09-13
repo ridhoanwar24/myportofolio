@@ -17,8 +17,7 @@
                 <a href="{% url 'main:show_main' %}" class="brand">{{ nickname }}</a>
                 <nav>
                     <a href="{% url 'main:show_main' %}">Profile</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#education">Education</a> <!To Be Change>
+                    <a href="{% url 'main:show_education' %}">Education</a>
                     <a href="{% url 'main:show_experience' %}">Experience</a>
                 </nav>
             </div>
@@ -58,41 +57,6 @@
                                 <i class="fa-solid fa-envelope fa-2x logo-social"></i>
                             </a>
                         </div>
-                    </div>
-                </div>
-            </section>
-            <section class="skills" id="skills">
-                <div class="container skills-grid">
-                    <h1>Skills</h1>
-                    <dl class="skill-list">
-                        <div class="skill-row">
-                            <dt><i class="fa-brands fa-python fa-8x logo-skill"></i></dt>
-                        </div>
-                        <div class="skill-row">
-                            <dt><i class="fa-brands fa-java fa-8x logo-skill"></i></dt>
-                        </div>
-                        <div class="skill-row">
-                            <dt><i class="fa-brands fa-html5 fa-8x logo-skill"></i></dt>
-                        </div>
-                        <div class="skill-row">
-                            <dt><i class="fa-brands fa-css3-alt fa-8x logo-skill"></i></dt>
-                        </div>
-                    </dl>
-                </div>
-            </section>
-            <section class="education" id="education">
-                <div class="container education-grid">
-                    <h1>Education</h1>
-                    <div class="education-section">
-                        <p>Nows here</p>
-                        <h3>Fasilkom, UI (2025 - now)</h3>
-                        <i class="fa-solid fa-arrow-up-long fa-2x panah"></i>
-                        <h3>MAN 2 Jakarta (2022-2025)</h3>
-                        <i class="fa-solid fa-arrow-up-long fa-2x panah"></i>
-                        <h3>SMPN 9 Jakarta (2019-2022)</h3>
-                        <i class="fa-solid fa-arrow-up-long fa-2x panah"></i>
-                        <h3>SDN Rambutan 05 Pagi (2013-2019)</h3>
-                        <p>Starts here</p>
                     </div>
                 </div>
             </section>

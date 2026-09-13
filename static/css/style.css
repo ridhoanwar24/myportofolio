@@ -5,9 +5,9 @@
     box-sizing: border-box;
 }
 
-html {
+/*html {
     scroll-behavior: smooth;
-}
+}*/
 
 :root {
     --ink: #1c1917;
@@ -79,7 +79,7 @@ h1, .brand {
 /*Section hero dengan css grid*/
 .hero {
     padding: 4.5rem 0 5rem;
-    border-bottom: 1px solid var(--line);
+    /*border-bottom: 1px solid var(--line);*/
 }
 
 .hero-grid {
@@ -145,19 +145,14 @@ h1, .brand {
     color: var(--shadow);
 }
 
+/*
 .logo-skill {
     transition: all 0.2s;
 }
 
 .logo-skill:hover {
     transform: scale(1.2);
-}
-
-.skill-list {
-    display: flex;
-    gap: 2 rem;
-    size: clamp(3rem, 7vw, 5rem);
-}
+}*/
 
 .social-links {
     display: flex;
@@ -165,6 +160,7 @@ h1, .brand {
     flex-wrap: wrap;
 }
 
+/*
 .skills-grid h1 {
     line-height: 0.95;
     margin-bottom: 2rem;
@@ -173,6 +169,9 @@ h1, .brand {
 }
 
 .skill-list {
+    display: flex;
+    gap: 2 rem;
+    size: clamp(3rem, 7vw, 5rem);
     margin-bottom: 2rem;
     margin-top: 2rem;
     justify-content: center;
@@ -204,22 +203,6 @@ h1, .brand {
 .panah {
     color: var(--text-muted);
     margin: 0.5rem auto;
-}
-
-/*.social-link {
-    display: inline-block;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-decoration: none;
-    color: var(--paper);
-    background-color: var(--ink);
-    border-radius: var(--radius);
-    padding: 0.5rem 1.1rem;
-    transition: background-color 0.2s ease;
-}
-
-.social-link:hover {
-    background-color: var(--accent);
 }*/
 
 .hero-photo {
@@ -276,7 +259,7 @@ h1, .brand {
     }
 }
 
-/*Tutorial 2, css untuk experience*/
+/*Tutorial 2 - css untuk experience*/
 .experience-section {
     padding: 4rem 0;
     /*border-top: 1px solid var(--line);*/
@@ -329,4 +312,49 @@ h1, .brand {
     margin-top: 1rem;
     font-size: 0.85rem;
     font-weight: 600;
+}
+
+/*Assignment 2 - css untuk education*/
+.education-section {
+    padding: 4rem 0;
+    /*border-top: 1px solid var(--line);*/
+}
+
+.education-section h1 {
+    margin: 0.4rem 0 1.5rem;
+    font-size: 2rem;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.education-card {
+    padding: 1.25rem;
+    background-color: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.education-category {
+    color: var(--accent-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.education-card h2 {
+    margin: 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.education-duration {
+    color: var(--text-muted);
+    text-decoration: solid;
+}
+
+.empty-state {
+    color: var(--text-muted);
 }
