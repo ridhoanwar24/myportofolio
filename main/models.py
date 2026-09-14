@@ -27,9 +27,9 @@ class Experience(models.Model):
 
 class Education(models.Model):
     EDUCATION_CHOICES = [
-        ('elementary school', 'Elementary School'),
-        ('junior high school', 'Junior High School'),
-        ('high school', 'High School'),
+        ('elementary-school', 'Elementary-School'),
+        ('junior-high-school', 'Junior-High-School'),
+        ('high-school', 'High-School'),
         ('university', 'University'), 
     ]
 
