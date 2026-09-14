@@ -28,3 +28,14 @@ Mencari referensi dari W3School, menggunakan Gen AI Gemini untuk membantu menjel
 > buat contohnya
 > ikon rumah dan ikon hati itu tinggal ganti sesuai kebutuhan dan diletakkan di akhir class ya
 > .site-header nav a { color: var(--ink); text-decoration: none; font-size: 0.95rem; transition: all 0.2 ease;}.site-header nav a:hover { border: 1px solid var(--shadow); background-color: var(--shadow); border-radius: 8px;}kenapa pas dihover malah wiggle
+
+### Tugas 2
+
+1. Saat membuka halaman portofolio, client akan mengirimkan request ke server. Django akan memeriksa URL dengan data yang ada di urls.py. Model sebagai database, template sebagai tampilan di client, dan view sebagai jembatan yang menghubungkan keduanya.
+
+2. Menyimpan data pada model membuat maintenance lebih mudah dilakukan. Selain itu, bisa langsung menambahkan data tanpa menambahkan baris kode baru di file HTML.
+
+3. Fungsi makemigrations adalah menyimpan perubahan yang dibuat di models.py, sedangkan migrate menerapkan perubahan yang sudah disimpan ke seluruh projek kita. Contohnya seperti menambahkan atribut baru di class Experience.
+
+Penggunaan AI(Gemini):
+https://share.google/aimode/B6gEjQDATSSbiCjLw
