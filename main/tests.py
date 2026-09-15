@@ -15,7 +15,7 @@ class MainTest(TestCase):
 
         self.education = Education.objects.create(
             institution_name ="SDN Rambutan 05 Pagi",
-            category="elementary-school",
+            category="elementary school",
             year_started=2013,
             year_ended=2019,   
         )
@@ -60,7 +60,7 @@ class MainTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "education.html")
         self.assertContains(response, self.education.institution_name)
-        self.assertContains(response, self.education.category)
+        self.assertContains(response, "Elementary School")
         self.assertContains(response, "2019")
         self.assertContains(response, f'href="{reverse("main:show_main")}"')
 
