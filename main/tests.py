@@ -40,7 +40,7 @@ class MainTest(TestCase):
 
     def test_education_model(self):
         self.assertEqual(str(self.education), "SDN Rambutan 05 Pagi")
-        self.assertEqual(self.education.category, "elementary-school")
+        self.assertEqual(self.education.category, "elementary school")
         self.assertFalse(self.education.is_ongoing)
 
     def test_experience_page(self):
