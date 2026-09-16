@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.core import serializers
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, redirect, render
 
 from main.models import Experience, Education
 
@@ -32,3 +35,18 @@ def show_education(request):
         "education_list": Education.objects.all(),
     }
     return render(request, "education.html", context)
+
+def create_education(request):
+    form = EducationForm(request.POST or None)
+
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        messages.success(request, "Pendidikan baru berhasil ditambahkan!")
+        return redirect("main:show_education")
+
+    context = {
+        "full_name": "Muhammad Ridho Anwar",
+        "nickname": "Ridho",
+        "form": form,
+    }
+    return render(request, "education_form.html", context)
