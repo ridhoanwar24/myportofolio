@@ -36,7 +36,7 @@ class EducationForm(ModelForm):
             ),
             "thumbnail": URLInput(
                 attrs={
-                    "placeholder": "https://github.com/kakBurhan/burhanquestv4",
+                    "placeholder": "https://drive.google.com/thumbnail?id=156ZjN3yK8Ok9EaGgoEqwWoHIYzvumKss&sz=w1000",
                 }
             ),
             "year_started": TextInput(
