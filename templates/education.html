@@ -40,7 +40,7 @@
                                 class="education-image">
                         {% endif %}
                         <h2>{{ education.institution_name }}</h2>
-                        <span class="experience-category">{{ education.category }}</span>
+                        <span class="experience-category">{{ education.get_category_display }}</span>
                         <div class="education-card-actions">
                             <div class="education-actions">
                                 {% if education.is_ongoing %}
@@ -57,7 +57,7 @@
                         </div>
                     </article>
                 {% empty %}
-                    {% if title_query %}
+                    {% if institution_name_query %}
                         <p class="empty-state">Tidak ada data dengan nama tersebut.</p>
                     {% else %}
                         <p class="empty-state">Belum ada pendidikan yang ditambahkan.</p>

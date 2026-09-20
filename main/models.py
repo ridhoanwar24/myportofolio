@@ -35,7 +35,7 @@ class Education(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     institution_name = models.CharField(max_length=255)
-    category = models.CharField(max_length=50, choices=EDUCATION_CHOICES, default='')
+    category = models.CharField(max_length=50, choices=EDUCATION_CHOICES, default='university')
     thumbnail = models.URLField(blank=True, default='')
     year_started = models.IntegerField()
     year_ended = models.IntegerField(blank=True, null=True)

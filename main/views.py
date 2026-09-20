@@ -53,6 +53,7 @@ def show_education(request):
         "full_name": "Muhammad Ridho Anwar",
         "nickname": "Ridho",
         "institution_name_query": institution_name_query,
+        "education_list":educations,
     }
     return render(request, "education.html", context)
 

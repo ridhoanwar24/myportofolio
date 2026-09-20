@@ -28,12 +28,6 @@ class EducationForm(ModelForm):
                     "maxlength": 255,
                 }
             ),
-            "category": TextInput(
-                attrs={
-                    "placeholder": "University",
-                    "maxlength": 50,
-                }
-            ),
             "thumbnail": URLInput(
                 attrs={
                     "placeholder": "https://drive.google.com/thumbnail?id=156ZjN3yK8Ok9EaGgoEqwWoHIYzvumKss&sz=w1000",
