@@ -1,4 +1,4 @@
-from django.forms import ModelForm, TextInput, Textarea, URLInput
+from django.forms import ModelForm, TextInput, Textarea, URLInput, DateTimeInput
 
 from main.models import *
 
@@ -82,9 +82,9 @@ class ExperienceForm(ModelForm):
                     "placeholder": "https://drive.google.com/thumbnail?id=156ZjN3yK8Ok9EaGgoEqwWoHIYzvumKss&sz=w1000",
                 }
             ),
-            "ended_at": TextInput(
+            "ended_at": DateTimeInput(
                 attrs={
-                    "placeholder": "2025",
+                    "type": "datetime-local"
                 }
             ),
         }

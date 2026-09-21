@@ -127,3 +127,37 @@ def delete_experience(request, experience_id):
         return redirect("main:show_experience")
 
     return redirect("main:show_experience")
+
+def edit_education(request, education_id):
+    education = get_object_or_404(Education, pk=education_id)
+    form = EducationForm(request.POST or None, instance=education)
+
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        messages.success(request, "Data pendidikan berhasil diperbarui!")
+        return redirect("main:show_education")
+
+    context = {
+        "full_name": "Muhammad Ridho Anwar",
+        "nickname": "Ridho",
+        "form": form,
+        "education": education,
+    }
+    return render(request, "education_form.html", context)
+
+def edit_experience(request, experience_id):
+    experience = get_object_or_404(Experience, pk=experience_id)
+    form = ExperienceForm(request.POST or None, instance=experience)
+
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        messages.success(request, "Pengalaman berhasil diperbarui!")
+        return redirect("main:show_experience")
+
+    context = {
+        "full_name": "Muhammad Ridho Anwar",
+        "nickname": "Ridho",
+        "form": form,
+        "experience": experience,
+    }
+    return render(request, "experience_form.html", context)

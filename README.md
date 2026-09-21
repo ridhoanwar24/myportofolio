@@ -49,3 +49,4 @@ https://share.google/aimode/B6gEjQDATSSbiCjLw
 3. Mula-mula klien mengirim request, kemudian Django mencocokkan dengan url yang ada di urls.py, django mengambil data dan melakukan serialize menjadi format JSON, kemudian mengirim respons ke klien. Serialization dilakukan karena data awal masih berupa object django, serialize membuat data menjadi format JSON yang dimengerti oleh web API.
 
 Penggunaan AI(Claude):
+https://claude.ai/share/2a35ed31-983b-4457-85be-4a967e6c992b

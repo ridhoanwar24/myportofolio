@@ -53,6 +53,7 @@
                                     </p>
                                 {% endif %}
                                 {% include "components/education_delete_modal.html" with education=education %}
+                                <a href="{% url 'main:edit_education' education.id %}" class="button">Edit</a>
                             </div>
                         </div>
                     </article>
