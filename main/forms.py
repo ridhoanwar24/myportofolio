@@ -44,3 +44,47 @@ class EducationForm(ModelForm):
                 }
             ),
         }
+
+class ExperienceForm(ModelForm):
+    class Meta:
+        model = Experience
+        fields = [
+            "title",
+            "description",
+            "category",
+            "thumbnail",
+            "ended_at",
+        ]
+    
+        labels = {
+            "title": "Pengalaman",
+            "description": "Deskripsi pengalaman",
+            "category": "Kategori pengalaman",
+            "thumbnail": "URL Pengalaman",
+            "ended_at": "Waktu selesai",
+        }
+    
+        widgets = {
+            "title": TextInput(
+                attrs={
+                    "placeholder": "Freelance",
+                    "maxlength": 255,
+                }
+            ),
+            "description": Textarea(
+                attrs={
+                    "placeholder": "Ceritakan pengalamanmu",
+                    "rows": 3,
+                }
+            ),
+            "thumbnail": URLInput(
+                attrs={
+                    "placeholder": "https://drive.google.com/thumbnail?id=156ZjN3yK8Ok9EaGgoEqwWoHIYzvumKss&sz=w1000",
+                }
+            ),
+            "ended_at": TextInput(
+                attrs={
+                    "placeholder": "2025",
+                }
+            ),
+        }

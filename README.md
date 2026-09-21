@@ -39,3 +39,13 @@ Mencari referensi dari W3School, menggunakan Gen AI Gemini untuk membantu menjel
 
 Penggunaan AI(Gemini):
 https://share.google/aimode/B6gEjQDATSSbiCjLw
+
+### Tugas 3
+
+1. Menggunakan ModelForm agar tidak perlu menulis kode html lagi setiap kali ingin membuat form baru. Penggunaan CSRF adalah untuk mencegah hacker meretas request yang kita kirim ke django.
+
+2. JSON lebih disukai daripada XML karena lebih ringkas, parser yang sangat cepat, dan integrasi yang sangat natural dengan Javascript di sisi frontend.
+
+3. Mula-mula klien mengirim request, kemudian Django mencocokkan dengan url yang ada di urls.py, django mengambil data dan melakukan serialize menjadi format JSON, kemudian mengirim respons ke klien. Serialization dilakukan karena data awal masih berupa object django, serialize membuat data menjadi format JSON yang dimengerti oleh web API.
+
+Penggunaan AI(Claude):
