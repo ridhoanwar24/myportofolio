@@ -76,6 +76,21 @@ h1, .brand {
     background-color: #dcdfe3;
 }
 
+.nav-user {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;      
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.nav-user:hover {
+    border-color: #dcdfe3;
+    background-color: #dcdfe3;
+}
+
 /*Section hero dengan css grid*/
 .hero {
     padding: 4.5rem 0 5rem;
@@ -565,11 +580,4 @@ h1, .brand {
         width: 100%;
         text-align: center;
     }
-}
-
-/*Tugas 3 - Form Experience*/
-.experience-form {
-    width: 100%;
-    max-width: 100%;
-    margin-top: 1.5rem;
 }
