@@ -56,7 +56,9 @@
                                     {% if user.is_superuser %}
                                         {% include "components/experience_delete_modal.html" with experience=experience %}
                                     {% endif %}
-                                    <a href="{% url 'main:edit_experience' experience.id %}" class="button">Edit</a>
+                                    {% if user.is_superuser %}
+                                        <a href="{% url 'main:edit_experience' experience.id %}" class="button">Edit</a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </article>
