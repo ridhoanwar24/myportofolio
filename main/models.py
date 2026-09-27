@@ -1,4 +1,6 @@
 import uuid
+
+from django.contrib.auth.models import User
 from django.db import models
 
 class Experience(models.Model):
@@ -18,6 +20,10 @@ class Experience(models.Model):
     thumbnail = models.URLField(blank=True, null=True)
     started_at = models.DateTimeField(auto_now_add=True)
     ended_at = models.DateTimeField(blank=True, null=True)
+    starred_by = models.ManyToManyField(
+        User, related_name="starred_experience", blank=True
+    )
+
     def __str__(self):
         return self.title
     
@@ -39,6 +45,9 @@ class Education(models.Model):
     thumbnail = models.URLField(blank=True, default='')
     year_started = models.IntegerField()
     year_ended = models.IntegerField(blank=True, null=True)
+    starred_by = models.ManyToManyField(
+        User, related_name="starred_education", blank=True
+    )
 
     def __str__(self):
         return self.institution_name

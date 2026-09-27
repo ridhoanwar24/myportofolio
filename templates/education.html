@@ -5,18 +5,19 @@
 {% endblock meta %}
 
 {% block content %}
-
 <main>
     <section class="experience-section" id="experience">
         <div class="container">
             <p class="section-kicker">Perjalanan saya sejauh ini</p>
             <div class="education-header">
                 <h1>Education</h1>
-                <a href="{% url 'main:create_education' %}"
-                   class="button education-add-button">
-                    <span aria-hidden="true">+</span>
-                    Tambah Pendidikan
-                </a>
+                {% if user.is_superuser %}
+                    <a href="{% url 'main:create_education' %}"
+                        class="button education-add-button">
+                        <span aria-hidden="true">+</span>
+                        Tambah Pendidikan
+                    </a>
+                {% endif %}
             </div>
 
             <form method="get"
@@ -52,7 +53,10 @@
                                         {{ education.year_started }} - {{ education.year_ended }}
                                     </p>
                                 {% endif %}
-                                {% include "components/education_delete_modal.html" with education=education %}
+                                {% include "components/education_star.html" with education=education %}
+                                {% if user.is_superuser %}
+                                    {% include "components/education_delete_modal.html" with education=education %}
+                                {% endif %}
                                 <a href="{% url 'main:edit_education' education.id %}" class="button">Edit</a>
                             </div>
                         </div>

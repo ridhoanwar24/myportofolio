@@ -16,10 +16,12 @@ urlpatterns = [
     path("api/experiences/", get_experience_json, name="get_experiences_json"),
     path("experience/<uuid:experience_id>/delete/", delete_experience, name="delete_experience"),
     path("experience/<uuid:experience_id>/edit/", edit_experience, name="edit_experience"),
+    path("experience/<uuid:experience_id>/star/", toggle_star_experience, name="toggle_star_experience"),
 
     path("education/", show_education, name="show_education"),
     path("education/add/", create_education, name="create_education"),
     path("api/educations/", get_education_json, name="get_education_json"),
     path("education/<uuid:education_id>/delete/", delete_education, name="delete_education"),
     path("education/<uuid:education_id>/edit/", edit_education, name="edit_education"),
+    path("education/<uuid:education_id>/star/", toggle_star_education, name="toggle_star_education"),
 ]
