@@ -50,3 +50,8 @@ https://share.google/aimode/B6gEjQDATSSbiCjLw
 
 Penggunaan AI(Claude):
 https://claude.ai/share/2a35ed31-983b-4457-85be-4a967e6c992b
+
+### Tugas 4
+
+Penggunaan AI(Gemini):
+https://share.google/aimode/vrkuLzsfO7KUe1fbF

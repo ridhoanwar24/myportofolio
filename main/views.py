@@ -96,6 +96,7 @@ def show_main(request):
 
 
 def show_experience(request):
+    is_editor = request.user.groups.filter(name="Editor").exists()
     json_response = get_experience_json(request)
 
     experiences = serializers.deserialize(
@@ -110,11 +111,13 @@ def show_experience(request):
         "nickname": "Ridho",
         "title_query": title_query,
         "experience_list": experiences,
+        "is_editor": is_editor,
     }
     return render(request, "experience.html", context)
 
 
 def show_education(request):
+    is_editor = request.user.groups.filter(name="Editor").exists()
     json_response = get_education_json(request)
 
     educations = serializers.deserialize(
@@ -129,6 +132,7 @@ def show_education(request):
         "nickname": "Ridho",
         "institution_name_query": institution_name_query,
         "education_list":educations,
+        "is_editor": is_editor,
     }
     return render(request, "education.html", context)
 
@@ -206,6 +210,10 @@ def delete_experience(request, experience_id):
 
 @login_required(login_url="/login/")
 def edit_education(request, education_id):
+    is_editor = request.user.groups.filter(name="Editor").exists()
+    if not (request.user.is_superuser or is_editor):
+        raise PermissionDenied
+
     education = get_object_or_404(Education, pk=education_id)
     form = EducationForm(request.POST or None, instance=education)
 
@@ -225,6 +233,10 @@ def edit_education(request, education_id):
 
 @login_required(login_url="/login/")
 def edit_experience(request, experience_id):
+    is_editor = request.user.groups.filter(name="Editor").exists()
+    if not (request.user.is_superuser or is_editor):
+        raise PermissionDenied
+    
     experience = get_object_or_404(Experience, pk=experience_id)
     form = ExperienceForm(request.POST or None, instance=experience)
 
@@ -240,6 +252,7 @@ def edit_experience(request, experience_id):
         "experience": experience,
     }
     return render(request, "experience_form.html", context)
+
 
 @login_required(login_url="/login/")
 def toggle_star_experience(request, experience_id):
