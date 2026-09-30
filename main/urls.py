@@ -17,6 +17,7 @@ urlpatterns = [
     path("experience/<uuid:experience_id>/delete/", delete_experience, name="delete_experience"),
     path("experience/<uuid:experience_id>/edit/", edit_experience, name="edit_experience"),
     path("experience/<uuid:experience_id>/star/", toggle_star_experience, name="toggle_star_experience"),
+    path("experience/add-ajax/", create_experience_ajax, name="create_experience_ajax"),
 
     path("education/", show_education, name="show_education"),
     path("education/add/", create_education, name="create_education"),
