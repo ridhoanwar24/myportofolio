@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.core import serializers
 from django.http import HttpResponse
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
 from main.models import Experience, Education
@@ -68,15 +69,34 @@ def get_education_json(request):
 
 def get_experience_json(request):
     title_query = request.GET.get("title", "").strip()
-    experiences = Experience.objects.all()
+    experiences = Experience.objects.prefetch_related("starred_by").all()
 
     if title_query:
         experiences = experiences.filter(title__icontains=title_query)
 
-    experiences_json = serializers.serialize(
-        "json", experiences, use_natural_foreign_keys=True
-        )
-    return HttpResponse(experiences_json, content_type="application/json")
+    # Konstruksi data JSON secara manual agar bisa menyisipkan logika Star
+    data = []
+    for experience in experiences:
+        starred_users = experience.starred_by.all()
+        is_starred = request.user in starred_users if request.user.is_authenticated else False
+        starred_by_names = ", ".join([u.username for u in starred_users])
+
+        data.append({
+            "pk": str(experience.id),
+            "fields": {
+                "title": experience.title,
+                "description": experience.description,
+                "category": experience.category,
+                "thumbnail": experience.thumbnail,
+                "started_at": experience.started_at,
+                "ended_at": experience.ended_at,
+                "star_count": starred_users.count(),
+                "is_starred": is_starred,
+                "starred_by_names": starred_by_names,
+            }
+        })
+    
+    return JsonResponse(data, safe=False)
 
 
 def show_main(request):
@@ -97,21 +117,15 @@ def show_main(request):
 
 def show_experience(request):
     is_editor = request.user.groups.filter(name="Editor").exists()
-    json_response = get_experience_json(request)
 
-    experiences = serializers.deserialize(
-        "json",
-        json_response.content.decode("utf-8"),
-    )
-    experiences = [experience.object for experience in experiences]
     title_query = request.GET.get("title", "").strip()
 
     context = {
         "full_name": "Muhammad Ridho Anwar",
         "nickname": "Ridho",
         "title_query": title_query,
-        "experience_list": experiences,
         "is_editor": is_editor,
+        "form": ExperienceForm(),
     }
     return render(request, "experience.html", context)
 
