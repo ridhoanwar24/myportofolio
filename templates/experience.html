@@ -128,6 +128,15 @@
         gridContainer.classList.toggle('hide', !showGrid);
     }
 
+    function escapeHtml(value) {
+        return String(value ?? '')
+            .replaceAll('&', '&amp;')
+            .replaceAll('<', '&lt;')
+            .replaceAll('>', '&gt;')
+            .replaceAll('"', '&quot;')
+            .replaceAll("'", '&#39;');
+    }
+
     // Membuat elemen card experience
     function buildExperienceCardElement(item) {
         const experience = item.fields;
@@ -137,13 +146,13 @@
         articleElement.className = 'experience-card';
 
         const imageHtml = experience.thumbnail 
-            ? `<img src="${experience.thumbnail}" alt="Gambar ${experience.title}" class="education-image">`
+            ? `<img src="${escapeHtml(experience.thumbnail)}" alt="Gambar ${escapeHtml(experience.title)}" class="education-image">`
             : '';
 
         const isOngoing = !experience.ended_at;
         const durationHtml = isOngoing
-            ? `<p class="education-duration">${experience.started_at} - Now</p>`
-            : `<p class="education-duration">${experience.started_at} - ${experience.ended_at}</p>`;
+            ? `<p class="education-duration">${escapeHtml(experience.started_at)} - Now</p>`
+            : `<p class="education-duration">${escapeHtml(experience.started_at)} - ${escapeHtml(experience.ended_at)}</p>`;
 
         // Dummy UUID digunakan untuk digantikan oleh ID asli dari data JSON
         const deleteUrl = "{% url 'main:delete_experience' '00000000-0000-0000-0000-000000000000' %}"
@@ -167,15 +176,15 @@
         const isStarredClass = experience.is_starred ? " is-starred" : "";
         const starText = experience.is_starred ? "Unstar" : "Star";
         const starTitle = experience.star_count > 0 
-            ? `Dibintangi oleh ${experience.starred_by_names}` 
+            ? `Dibintangi oleh ${escapeHtml(experience.starred_by_names)}` 
             : "Jadilah yang pertama memberi star";
 
         // Komponen card
         const completeCardHtml = `
             ${imageHtml}
-            <h2>${experience.title}</h2>
-            <span class="experience-category">${experience.category}</span>
-            <p class="experience-description">${experience.description}</p>
+            <h2>${escapeHtml(experience.title)}</h2>
+            <span class="experience-category">${escapeHtml(experience.category)}</span>
+            <p class="experience-description">${escapeHtml(experience.description)}</p>
             <div class="education-card-actions">
                 <div class="education-actions">
                     <form method="post" action="${starUrl}" class="star-form">
