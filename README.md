@@ -55,3 +55,14 @@ https://claude.ai/share/2a35ed31-983b-4457-85be-4a967e6c992b
 
 Penggunaan AI(Gemini):
 https://share.google/aimode/vrkuLzsfO7KUe1fbF
+
+### Tugas 5
+
+1. Debouncing adalah menunda eksekusi fungsi selama jeda waktu tertentu. Misal user sedang mencari/mengetik sesuatu, dengan debouncing browser akan menunggu sekian ms untuk mengecek apakah user sudah berhenti mengetik atau belum. Jika sudah selesai, browser baru akan mengirim request. Tanpa debouncing, setiap kali user mengetik satu huruf, browser akan mengirim request ke server melalui AJAX, sehingga akan ada request berkali-kali. Debouncing membuat request ke server lebih efisien.
+
+2. Keyword await digunakan untuk menunggu hasil dari fetch sebelum lanjut ke proses berikutnya. Tanpa await, kode bisa saja terus berjalan padahal hasil dari fetch belum selesai diproses sehingga kita mendapat hasil yang tidak diharapkan.
+
+3. XSS (Cross-Site Scripting) adalah serangan yang menyisipkan kode JavaScript ke halaman web, kemudian dijalankan di browser oleh pengguna lain. Misalnya ketika kode berbahaya tersebut tersimpan ke database lalu ikut dijalankan ketika data ditampilkan. Data yang ditampilkan dengan AJAX lebih rentan daripada template Django karena Django sudah melakukan auto-escaping, sehingga karakter yang berkemungkinan berbahaya diubah dan dijalankan sebagai teks biasa dan bukan kode yang harus dieksekusi. Pada AJAX tidak ada lagi yang melakukan auto-escaping, sehingga penanganan terhadap XSS harus dilakukan secara manual.
+
+Penggunaan AI(Claude):
+https://claude.ai/share/43dce2ae-cdb8-4b87-b19e-5995e5e76005
