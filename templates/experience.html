@@ -187,6 +187,7 @@
             <p class="experience-description">${escapeHtml(experience.description)}</p>
             <div class="education-card-actions">
                 <div class="education-actions">
+                    ${durationHtml}
                     <form method="post" action="${starUrl}" class="star-form">
                         {% csrf_token %}
                         <button type="submit" 
@@ -208,7 +209,7 @@
         return articleElement;
     }
 
-    // Fetch data project
+    // Fetch data experience
     async function fetchExperience(searchQuery = "") {
         if (experienceAbortController) experienceAbortController.abort();
         experienceAbortController = new AbortController();
@@ -326,4 +327,5 @@
     // Start application
     fetchExperience(searchInput.value.trim());
     </script>
+
 {% endblock content %}

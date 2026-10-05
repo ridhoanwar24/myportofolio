@@ -47,6 +47,12 @@ class EducationForm(ModelForm):
             ),
         }
 
+    def clean_institution_name(self):
+        institution_name = strip_tags(self.cleaned_data["institution_name"]).strip()
+        if not institution_name:
+            raise ValidationError("Nama institusi tidak boleh hanya berisi tag HTML.")
+        return institution_name
+
 class ExperienceForm(ModelForm):
     class Meta:
         model = Experience
