@@ -2,7 +2,7 @@ from rest_framework.permissions import BasePermission, SAFE_METHODS
 
 
 class IsPortfolioOwnerOrReadOnly(BasePermission):
-    message = "Only the portfolio owner can change experience."
+    message = "Only the portfolio owner can change data."
 
     def has_permission(self, request, view):
         return (
