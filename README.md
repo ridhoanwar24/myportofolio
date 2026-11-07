@@ -68,3 +68,20 @@ https://share.google/aimode/vrkuLzsfO7KUe1fbF
 
 Penggunaan AI(Claude):
 https://claude.ai/share/43dce2ae-cdb8-4b87-b19e-5995e5e76005
+
+### Tugas 6
+
+1. REST (Representational State Transfer) adalah gaya arsitektur perangkat lunak yang memanfaatkan HTTP untuk komunikasi berbasis resource, dan resource tersebut menggunakan Uniform Resource Identifier (URI). REST merupakan salah satu cara membuat web API. Mengembalikan JSON saja belum cukup untuk menyebut sebuah API sebagai RESTful karena JSON hanyalah format data. Sebuah API disebut RESTful jika memenuhi 5 syarat (REST constraints), yaitu Client-Server Separation, Stateless, Cacheable, Uniform Interface, dan Layered System & Code on Demand.
+
+PUT digunakan untuk memperbarui data secara menyeluruh. Klien mengirim semua field yang diperlukan, atau jika dikosongkan akan diisi menjadi null atau nilai default. Misal mengedit education secara lengkap (mengubah nama, kategori, dan tahun). Sedangkan PATCH digunakan untuk memperbarui data secara parsial. Klien mengirim field yang ingin diubah tanpa memengaruhi field lainnya. Misal memperbarui tahun lulus.
+
+2. Serializer berfungsi untuk menerjemahkan objek django (seperti model) menjadi format data python (JSON, XML), dan sebaliknya. Merakit dictionary secara manual membutuhkan deklarasi eksplisit untuk setiap field, sedangkan ModelSerializer otomatis memeriksa Django model untuk menghasilkan serializer field yang sesuai.
+
+3. Autentikasi memeriksa siapa pengguna (owner, visitor, atau lainnya), sedangkan otorisasi memeriksa apa saja yang bisa dilakukan pengguna tersebut (owner bisa create, visitor hanya melihat, editor bisa edit, dll.). Hak akses harus diperiksa dengan permission class, karena jika hanya menyembunyikan tombol, orang yang mengetik path secara manual masih bisa mengakses dan dieksekusi oleh server.
+
+4. SessionAuthentication mengandalkan cookie session bawaan browser untuk mengenali user. Browser otomatis mengirim cookies tersebut pada setiap request, bahkan request dari pihak ketiga, sehingga rentan terhadap serangan CSRF. DRF memaksa validasi token CSRF pada HTTP method yang tidak aman (PUT, PATCH, DELETE, POST) ketika session authentication digunakan. 
+
+Fungsi force_authenticate dirancang khusus dalam unit test untuk melewati alur pemeriksaan Django, sehingga programmer bisa fokus pada logika kode bisnis. Karena pemeriksaan dilewati secara paksa, ini tidak bisa menguji apakah perlindungan CSRF sudah berjalan atau belum.
+
+Penggunaan AI(Claude):
+https://claude.ai/share/4475446d-3f9b-4baa-964f-463dacd1681e
