@@ -59,6 +59,15 @@ class EducationSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Institution name cannot be empty.")
         return value
 
+    def validate(self, attrs):
+        started = attrs.get("year_started", getattr(self.instance, "year_started", None))
+        ended = attrs.get("year_ended", getattr(self.instance, "year_ended", None))
+        if started is not None and ended is not None and ended < started:
+            raise serializers.ValidationError(
+                {"year_ended": "End year cannot be before start year."}
+            )
+        return attrs
+
     def get_star_count(self, obj):
         return obj.starred_by.count()
     
